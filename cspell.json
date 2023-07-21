@@ -33,7 +33,9 @@
     "changelog",
     "sendmessage",
     "resaction",
-    "emmiter"
+    "emmiter",
+    "Contint",
+    "ACCESSKEY"
   ],
   "ignorePaths": [
     "package.json",
