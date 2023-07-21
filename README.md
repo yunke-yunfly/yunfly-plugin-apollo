@@ -39,7 +39,6 @@ config.apollo = {
 }
 ```
 
-
 ## config options
 
 ### interface 
@@ -63,6 +62,57 @@ export interface ApolloConfig {
 | serviceUrl | `string` | no | `process.env.APOLLO_META_SERVER_URL` | apollo host url |
 | namespace | `string` | no | `application` | apollo config namespace |
 | serviceName | `string` | no | `packageJson.name` |  |
+
+
+## api
+
+- getApolloConfig
+
+api usage
+
+```ts
+import { getApolloConfig } from '@yunflyjs/yunfly-plugin-apollo';
+
+console.log('getApolloConfig',getApolloConfig);
+```
+
+- get apollo config in controller
+
+```ts
+import { Controller, Get } from '@yunflyjs/yunfly';
+import { getApolloConfig } from '@yunflyjs/yunfly-plugin-apollo';
+ 
+@Controller()
+export class ExampleController {
+  @Get('/users')
+  getApolloConfig() {
+    return getApolloConfig();
+  }
+}
+```
+
+## env
+
+### process.env.APOLLO_META_SERVER_URL
+
+apollo url host address, need to start with http:// or https://.
+
+- priority
+
+`config.apollo.serviceUrl` > `process.env.APOLLO_META_SERVER_URL`
+
+### process.env.APOLLO_ACCESSKEY_SECRET
+
+if the apollo management side has enabled the secret key, this parameter needs to be passed.
+
+- priority
+
+`config.apollo.secret` > `process.env.APOLLO_ACCESSKEY_SECRET`
+
+## 其他说明
+
+1. apollo hot update
+2. failed to retry 5 times
 
 
 
