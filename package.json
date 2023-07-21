@@ -1,6 +1,6 @@
 {
   "name": "@yunflyjs/yunfly-plugin-apollo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "yunfly apollo plugin.",
   "main": "./dist/sdk/index.js",
   "typings": "dist/sdk/index.d.ts",
